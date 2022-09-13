@@ -2,7 +2,7 @@
 
 ## Add network drive
 ```powershell
-$shareip = 192.168.1.200
+$shareip = "192.168.1.200"
 $sharepaths = "path\to","path\too"
 $username = "username"
 $password = "password"
