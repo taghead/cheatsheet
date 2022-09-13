@@ -1,6 +1,6 @@
 # cheatsheet
 
-## 
+## Add network drive
 
 $shareip = 192.168.1.200
 $sharepaths = "path\to","path\too"
