@@ -1,7 +1,7 @@
 # cheatsheet
 
 ## Add network drive
-
+```powershell
 $shareip = 192.168.1.200
 $sharepaths = "path\to","path\too"
 $username = "username"
@@ -13,11 +13,13 @@ cmdkey /add:"$shareip" /user:"$username" /pass:"$password"
 foreach ( $path in $sharepaths ) {
   net use D: "\\$shareip\$path" /persistent:yes
 }
-
+```
 
 ## Get printer ip
 
+```powershell
 powershell -c "foreach ($printer in Get-Printer) { $printer | select name, location, portname | sort Name -u | ConvertTo-Json }"
+```
 
 ## Migrate printers
 
