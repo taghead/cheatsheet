@@ -3,16 +3,19 @@
 ## Add network drive
 ```powershell
 $shareip = "192.168.1.200"
-$sharepaths = "path\to","path\too"
 $username = "username"
 $password = "password"
+
+$networkDrives = @(
+    [PSCustomObject]@{ letter = 'D:'; path = 'data' }
+    [PSCustomObject]@{ letter = 'F:'; path = 'path\to\files' }
+)
 
 cmdkey /delete:"$shareip"
 cmdkey /add:"$shareip" /user:"$username" /pass:"$password"
 
-foreach ( $path in $sharepaths ) {
-  net use D: "\\$shareip\$path" /persistent:yes
-}
+
+$networkDrives.foreach{net use "$($PSItem.letter)" "\\$shareip\$($PSItem.path)" /persistent:yes }
 ```
 
 ## Get printer ip
