@@ -1,5 +1,19 @@
 # cheatsheet
 
+## Choco
+```powershell
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+
+choco feature enable -n allowGlobalConfirmation
+
+$args = "-y --acceptlicense --log-file=C:\choco_log.txt"
+$apps = "7zip.install","javaruntime","googlechrome","adobereader","vlc","zoom","slack","webex-meetings"
+
+ForEach( $PSitem in $apps ){
+    choco install $PSitem $args
+}
+```
+
 ## Add network drive
 ```powershell
 $shareip = "192.168.1.200"
