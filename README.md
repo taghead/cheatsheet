@@ -7,7 +7,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 choco feature enable -n allowGlobalConfirmation
 
 $args = "-y --acceptlicense --log-file=C:\choco_log.txt"
-$apps = "7zip.install","javaruntime","googlechrome","adobereader","vlc","zoom","slack","webex-meetings"
+$apps = "7zip.install","javaruntime"
 
 ForEach( $PSitem in $apps ){
     choco install $PSitem $args
